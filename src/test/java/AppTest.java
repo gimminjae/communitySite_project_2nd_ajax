@@ -12,7 +12,7 @@ public class AppTest {
         assertThat(rs).isEqualTo(40);
     }
     @Test
-    void Test_ObjectMapper() throws Exception {
+    void Test_ObjectMapper_toJsonStr() throws Exception {
         ArticleDto articleDto = new ArticleDto(1, "title1", "body1");
 
         String rs = Ut.json.toJsonStr(articleDto, "");
@@ -20,5 +20,15 @@ public class AppTest {
         assertThat(rs).isEqualTo("""
                 {"id":1,"title":"title1","body":"body1"}
                 """.trim());
+    }
+    @Test
+    void Test_ObjectMapper_toObj() {
+        ArticleDto articleDto = new ArticleDto(1, "title1", "body1");
+
+        String jsonStr = Ut.json.toJsonStr(articleDto, "");
+
+        ArticleDto resultArticleDto = (ArticleDto) Ut.json.toObj(jsonStr, ArticleDto.class, null);
+
+        assertThat(resultArticleDto).isEqualTo(articleDto);
     }
 }

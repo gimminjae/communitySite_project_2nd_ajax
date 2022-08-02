@@ -1,14 +1,10 @@
 package com.ll.exam.article.dto;
 
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.Setter;
-import lombok.ToString;
+import lombok.*;
 
-@Getter
-@Setter
+@Data
 @AllArgsConstructor
-@ToString
+@NoArgsConstructor
 public class ArticleDto {
     private long id;
     private String title;
