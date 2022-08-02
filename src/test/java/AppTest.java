@@ -27,7 +27,7 @@ public class AppTest {
 
         String jsonStr = Ut.json.toJsonStr(articleDto, "");
 
-        ArticleDto resultArticleDto = (ArticleDto) Ut.json.toObj(jsonStr, ArticleDto.class, null);
+        ArticleDto resultArticleDto = Ut.json.toObj(jsonStr, ArticleDto.class, null);
 
         assertThat(resultArticleDto).isEqualTo(articleDto);
     }
