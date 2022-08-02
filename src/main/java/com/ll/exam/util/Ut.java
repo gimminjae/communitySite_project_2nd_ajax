@@ -16,7 +16,7 @@ public class Ut {
                 return defaultValue;
             }
         }
-        public static String toJsonStr(Object obj, String defaultValue) {
+        public static <T> String toJsonStr(T obj, String defaultValue) {
             try {
                 return om.writeValueAsString(obj);
             } catch(JsonProcessingException e) {

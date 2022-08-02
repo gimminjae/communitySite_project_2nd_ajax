@@ -45,7 +45,7 @@ public class AppTest {
         String jsonStr = Ut.json.toJsonStr(articleDtoMap, "");
 
         assertThat(jsonStr).isEqualTo("""
-                {"가장오래된":{"id":1,"title":"제목1","body":"내용1"},"최신의":{"id":2,"title":"제목2","body":"내용2"}}
+                {"가장 오래된":{"id":1,"title":"title1","body":"body1"},"최신의":{"id":2,"title":"title2","body":"body2"}}
                 """.trim());
     }
     @Test
@@ -57,7 +57,7 @@ public class AppTest {
         String jsonStr = Ut.json.toJsonStr(articleDtoList, "");
 
         assertThat(jsonStr).isEqualTo("""
-                [{"id":1,"title":"제목1","body":"내용1"},{"id":2,"title":"제목2","body":"내용2"}]
+                [{"id":1,"title":"title1","body":"body1"},{"id":2,"title":"title2","body":"body2"}]
                 """.trim());
     }
 }
