@@ -9,9 +9,9 @@ public class Ut {
         static {
             om = new ObjectMapper();
         }
-        public static Object toObj(String json, Class c, Object defaultValue) {
+        public static <T> T toObj(String json, Class<T> c, T defaultValue) {
             try {
-                return om.readValue(json, c);
+                return (T)om.readValue(json, c);
             } catch(JsonProcessingException e) {
                 return defaultValue;
             }
