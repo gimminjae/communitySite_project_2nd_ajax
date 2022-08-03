@@ -70,7 +70,6 @@ public class AppTest {
         String jsonStr = Ut.json.toJsonStr(articleDtoList, "");
 
         List<ArticleDto> articleDtoList2 = Ut.json.toObj(jsonStr, new TypeReference<>() {}, null);
-
         assertThat(articleDtoList2).isEqualTo(articleDtoList);
     }
 }
