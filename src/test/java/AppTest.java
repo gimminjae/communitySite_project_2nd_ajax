@@ -1,3 +1,4 @@
+import com.fasterxml.jackson.core.type.TypeReference;
 import com.ll.exam.article.dto.ArticleDto;
 import com.ll.exam.util.Ut;
 import org.junit.jupiter.api.Test;
@@ -59,5 +60,17 @@ public class AppTest {
         assertThat(jsonStr).isEqualTo("""
                 [{"id":1,"title":"title1","body":"body1"},{"id":2,"title":"title2","body":"body2"}]
                 """.trim());
+    }
+    @Test
+    void Test_ObjectMapper_jsonStrToList() {
+        List<ArticleDto> articleDtoList = new LinkedList<>();
+        articleDtoList.add(new ArticleDto(1, "title1", "body1"));
+        articleDtoList.add(new ArticleDto(2, "title2", "body2"));
+
+        String jsonStr = Ut.json.toJsonStr(articleDtoList, "");
+
+        List<ArticleDto> articleDtoList2 = Ut.json.toObj(jsonStr, new TypeReference<>() {}, null);
+
+        assertThat(articleDtoList2).isEqualTo(articleDtoList);
     }
 }
