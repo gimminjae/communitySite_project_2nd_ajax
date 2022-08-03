@@ -80,7 +80,7 @@ public class AppTest {
 
         String jsonStr = Ut.json.toJsonStr(articleDtoMap, "");
 
-        Map<String, ArticleDto> articleDtoMap2 = Ut.json.toMap(jsonStr, new TypeReference<>() {}, null);
+        Map<String, ArticleDto> articleDtoMap2 = Ut.json.toObj(jsonStr, new TypeReference<>() {}, null);
 
         assertThat(articleDtoMap2).isEqualTo(articleDtoMap);
     }
