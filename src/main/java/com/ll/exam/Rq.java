@@ -1,5 +1,6 @@
 package com.ll.exam;
 
+import com.ll.exam.article.dto.ArticleDto;
 import com.ll.exam.util.Ut;
 import jakarta.servlet.RequestDispatcher;
 import jakarta.servlet.ServletException;
@@ -8,6 +9,7 @@ import jakarta.servlet.http.HttpServletResponse;
 
 import java.io.IOException;
 import java.io.UnsupportedEncodingException;
+import java.util.List;
 
 public class Rq {
     private final HttpServletRequest req;
@@ -155,5 +157,15 @@ public class Rq {
         String jsonStr = Ut.json.toJsonStr(data, "");
 
         println(jsonStr);
+    }
+    public void json(Object data, String resultCode, String message) {
+        json(new ResultData(resultCode, message, data));
+    }
+
+    public void successJson(Object data) {
+        json(data, "S-1", "성공");
+    }
+    public void failJson(Object data) {
+        json(data, "F-1", "실패");
     }
 }

@@ -119,8 +119,6 @@ public class ArticleController {
     public void getArticles(Rq rq) {
         List<ArticleDto> articles = articleService.findAll();
 
-        ResultData<List<ArticleDto>> resultData = new ResultData("S-1", "success", articles);
-
-        rq.json(resultData);
+        rq.successJson(articles);
     }
 }
