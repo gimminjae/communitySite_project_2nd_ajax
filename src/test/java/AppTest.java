@@ -84,4 +84,11 @@ public class AppTest {
 
         assertThat(articleDtoMap2).isEqualTo(articleDtoMap);
     }
+    @Test
+    void mapOf_Test() {
+        Map<String, Object> map = Ut.mapOf("age", "22", "name", "Paul");
+
+        assertThat(map.get("age")).isEqualTo("22");
+        assertThat(map.get("name")).isEqualTo("Paul");
+    }
 }
