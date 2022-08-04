@@ -8,12 +8,12 @@
 <script>
     let Articles_lastId = 0;
     function Articles_loadMore() {
-        fetch('/usr/article/getArticles/free?fromId=${Articles_lastId}')
+        fetch(`/usr/article/getArticles/free?fromId=\${Articles_lastId}`)
             .then(data => data.json())
             .then(responseData => {
-                console.log(responseData);
-                for(const key in responseData.data) {
-                    const article = responseData.data[key];
+                const articles = responseData.data;
+                for(const index in articles) {
+                    const article = articles[index];
 
                     const html = `
                     <li class="flex">
@@ -25,6 +25,9 @@
                     `;
 
                     $('.articles').append(html);
+                }
+                if(articles.length > 0) {
+                    Articles_lastId = articles[articles.length - 1].id;
                 }
             });
     }
