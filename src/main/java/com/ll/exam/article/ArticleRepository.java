@@ -62,4 +62,8 @@ public class ArticleRepository {
         articleDto.setTitle(title);
         articleDto.setBody(body);
     }
+
+    public List<ArticleDto> findAllGreaterThan(int fromId) {
+        return datum.stream().filter(o -> o.getId() > fromId).toList();
+    }
 }

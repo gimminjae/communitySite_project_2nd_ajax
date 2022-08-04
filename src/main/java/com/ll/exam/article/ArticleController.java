@@ -117,8 +117,17 @@ public class ArticleController {
     }
 
     public void getArticles(Rq rq) {
-        List<ArticleDto> articles = articleService.findAll();
+        int fromId = rq.getIntParam("fromId", 0);
 
+        List<ArticleDto> articles = null;
+
+        if(fromId == 0) {
+            articles = articleService.findAll();
+            rq.successJson(articles);
+            return;
+        }
+        articles = articleService.findAllGreaterThan(fromId);
         rq.successJson(articles);
+
     }
 }

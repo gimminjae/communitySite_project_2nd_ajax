@@ -29,4 +29,8 @@ public class ArticleService {
     public void modify(long id, String title, String body) {
         articleRepository.modify(id, title, body);
     }
+
+    public List<ArticleDto> findAllGreaterThan(int fromId) {
+        return articleRepository.findAllGreaterThan(fromId);
+    }
 }
