@@ -31,6 +31,7 @@
                 }
                 //Articles_loadMore(); //즉시실행
                 setTimeout(Articles_loadMore(), 3000) //3초 뒤에 실행
+                //무한 재귀 함수 Articles_loadMore()
             });
     }
 </script>
@@ -42,7 +43,7 @@
             <!-- 이 부분을 자바스크립트를 이용해 채운다. -->
         </ul>
         <hr class="mt-3 mb-3">
-    <button class="btn btn-sm" onclick="Articles_loadMore();">불러오기</button>
+    <button class="hidden btn btn-sm" onclick="Articles_loadMore();">불러오기</button>
     </div>
 </section>
 <script>
