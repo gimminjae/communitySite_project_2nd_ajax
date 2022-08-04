@@ -20,25 +20,4 @@
         </ul>
     </div>
 </section>
-
-<section class="mt-10">
-    <div class="container px-3 mx-auto">
-        <h1 class="font-bold text-lg">테스트</h1>
-        <script>
-            function Article_loadLatest() {
-                fetch('/usr/article/getArticles/free')
-                    .then(data => data.json()) //json을 파싱
-                    .then(responseData => {
-                        const latestArticle = responseData.data[responseData.data.length - 1].title;
-                        //jquery 찾기 : $
-                        // $('.place-1').append(latestArticle + "<br/>"); //아래로 추기
-                        // $('.place-1').empty().append(latestArticle + "<br/>"); //기존 내용 비우고 위로 추가
-                        $('.place-1').prepend(latestArticle + "<br/>"); //위로 추가
-                    });
-            }
-        </script>
-        <button onclick="Article_loadLatest();" class="btn btn-xs">최신글 가져오기</button>
-        <div class="place-1 border-2 border-[red] min-h-[500px]"></div>
-    </div>
-</section>
 <%@ include file="../common/foot.jspf"%>
