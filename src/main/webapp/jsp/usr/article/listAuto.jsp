@@ -29,6 +29,8 @@
                 if(articles.length > 0) {
                     Articles_lastId = articles[articles.length - 1].id;
                 }
+                //Articles_loadMore(); //즉시실행
+                setTimeout(Articles_loadMore(), 3000) //3초 뒤에 실행
             });
     }
 </script>
