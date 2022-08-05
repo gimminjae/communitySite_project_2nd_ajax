@@ -42,4 +42,15 @@ public class ChatController {
         rq.setAttr("chatRooms", chatRoomDtos);
         rq.view("usr/chat/roomList");
     }
+
+    public void doDelete(Rq rq) {
+        long id = rq.getPostId();
+
+
+        chatService.doDeleteRoom(id);
+
+        rq.println("<div class=\"alert('정말로 삭제하시겠습니까?')\"></div>".formatted(id));
+
+        rq.replace("/usr/chat/roomList/free", "채팅방이 삭제되었습니다.");
+    }
 }

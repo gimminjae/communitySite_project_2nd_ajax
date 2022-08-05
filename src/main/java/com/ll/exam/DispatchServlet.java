@@ -69,6 +69,8 @@ public class DispatchServlet extends HttpServlet {
                 break;
             case "DELETE":
                 switch(rq.getActionPath()) {
+                    case "/usr/chat/delete":
+                        chatController.doDelete(rq);
                     case "/usr/article/delete":
                         articleController.doDelete(rq);
                         break;

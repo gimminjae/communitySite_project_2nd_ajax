@@ -37,4 +37,18 @@ public class ChatRoomRepository {
     public List<ChatRoomDto> findAllRooms() {
         return datum;
     }
-}
+
+    public void doDeleteRoom(long id) {
+        ChatRoomDto chatRoomDto = findById(id);
+        datum.remove(chatRoomDto);
+    }
+
+    private ChatRoomDto findById(long id) {
+            for(ChatRoomDto ad : datum) {
+                if(ad.getId() == id) {
+                    return ad;
+                }
+            }
+            return null;
+        }
+    }
