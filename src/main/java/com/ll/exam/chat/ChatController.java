@@ -28,7 +28,7 @@ public class ChatController {
 
         long id = chatService.create(title, body);
 
-        rq.replace("/usr/chat/room/free".formatted(id), "%d번 채팅방이 생성되었습니다.".formatted(id));
+        rq.replace("/usr/chat/room/%d".formatted(id), "%d번 채팅방이 생성되었습니다.".formatted(id));
 
     }
 }
