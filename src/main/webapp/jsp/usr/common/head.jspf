@@ -42,12 +42,16 @@
 
         <ul class="flex gap-3">
             <li>
-                <a class="hover:underline hover:text-[red]"
-                href="/usr/article/write/free">자유게시물 작성</a>
+                <a class="btn btn-outline btn-primary" href="/usr/chat/createRoom/free")>채팅방 생성</a>
             </li>
             <li>
-                <a class="hover:underline hover:text-[red]"
-                   href="/usr/article/list/free">자유게시물 리스트</a>
+                <a class="btn btn-outline btn-primary" href="/usr/chat/createRoom/free")>채팅방 리스트</a>
+            </li>
+            <li>
+                <a class="btn btn-outline btn-primary" href="/usr/article/write/free")>자유게시물 작성</a>
+            </li>
+            <li>
+                <a class="btn btn-outline btn-primary" href="/usr/article/list/free")>자유게시물 리스트</a>
             </li>
         </ul>
     </div>

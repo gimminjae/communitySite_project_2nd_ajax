@@ -9,13 +9,13 @@
     <div class="container px-3 mx-auto">
         <h1 class="font-bold text-lg">게시물 리스트</h1>
 
-        <ul class="mt-5">
+        <ul class="">
             <c:forEach items="${articles}" var="article">
-                <li class="flex">
-                    <a class="w-[40px] hover:underline hover:text-[red]" href="/usr/article/detail/free/${article.id}">${article.id}</a>
+                <li class="flex mt-2">
+                    <a class="badge badge-primary mr-2" href="/usr/article/detail/free/${article.id}">${article.id}</a>
                     <a class="flex-grow hover:underline hover:text-[red]" href="/usr/article/detail/free/${article.id}">${article.title}</a>
-                    <a onclick="if ( !confirm('정말로 삭제하시겠습니까?') ) return false;" class="hover:underline hover:text-[red] mr-2" href="/usr/article/delete/free/${article.id}?_method=DELETE">삭제</a>
-                    <a class="hover:underline hover:text-[red]" href="/usr/article/modify/free/${article.id}">수정</a>
+                    <a onclick="if ( !confirm('정말로 삭제하시겠습니까?') ) return false;" class="btn btn-outline btn-error btn btn-sm mr-2" href="/usr/article/delete/free/${article.id}?_method=DELETE">삭제</a>
+                    <a class="btn btn-outline btn-primary btn btn-sm" href="/usr/article/modify/free/${article.id}">수정</a>
                 </li>
             </c:forEach>
         </ul>
