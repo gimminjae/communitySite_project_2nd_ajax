@@ -27,7 +27,7 @@
         <h1 class="font-bold text-lg">채팅방 생성</h1>
         <form method="POST" onsubmit="ArticleSave__submitForm(this); return false;">
             <div class="gap-3">
-                <span>제목</span>
+                <span>이름</span>
                 <div>
                     <input name="title" type="text" maxlength="50" placeholder="이름을 입력해주세요." class="input input-bordered w-full max-w-xs" />
 
