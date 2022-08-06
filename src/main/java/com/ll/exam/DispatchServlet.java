@@ -25,6 +25,9 @@ public class DispatchServlet extends HttpServlet {
         switch (rq.getRouteMethod()) {
             case "GET":
                 switch (rq.getActionPath()) {
+                    case "/usr/chat/room":
+                        chatController.showRoom(rq);
+                        break;
                     case "/usr/chat/modifyRoom":
                         chatController.showModifyRoom(rq);
                         break;
@@ -59,6 +62,8 @@ public class DispatchServlet extends HttpServlet {
                 break;
             case "POST":
                 switch (rq.getActionPath()) {
+                    case"/usr/chat/writeMessage":
+                        chatController.doWriteMessage(rq);
                     case "/usr/chat/createRoom":
                         chatController.doCreateRoom(rq);
                         break;

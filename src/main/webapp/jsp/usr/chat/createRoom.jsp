@@ -30,7 +30,6 @@
                 <span>이름</span>
                 <div>
                     <input name="title" type="text" maxlength="50" placeholder="이름을 입력해주세요." class="input input-bordered w-full max-w-xs" />
-
                 </div>
             </div>
 

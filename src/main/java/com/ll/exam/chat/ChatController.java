@@ -75,7 +75,7 @@ public class ChatController {
         long id = rq.getPostId();
 
         if (id == 0) {
-            rq.replace("/usr/article/list/free", "번호를 입력해주세요.");
+            rq.replace("/usr/chat/chatList/free", "번호를 입력해주세요.");
             return;
         }
         ChatRoomDto chatRoomDto = chatService.findById(id);
@@ -90,6 +90,32 @@ public class ChatController {
 
         chatService.modify(id, title, body);
 
-        rq.replace("/usr/chat/detail/free/%d".formatted(id), "%d번 채팅방이 수정되었습니다.".formatted(id));
+        rq.replace("/usr/chat/room/free/%d".formatted(id), "%d번 채팅방이 수정되었습니다.".formatted(id));
+    }
+
+    public void showRoom(Rq rq) {
+        long id = rq.getLongPathValueByIndex(1, 0);
+
+        if (id == 0) {
+            rq.replace("/usr/chat/room/free", "번호를 입력해주세요.");
+            return;
+        }
+        ChatRoomDto chatRoomDto = chatService.findById(id);
+
+        if (chatRoomDto == null) {
+            rq.replace("/usr/chat/roomList/free", "해당 글은 존재하지 않습니다.");
+            return;
+        }
+
+        rq.setAttr("chatRoom", chatRoomDto);
+        rq.view("usr/chat/room");
+    }
+
+    public void doWriteMessage(Rq rq) {
+        long roomId = rq.getLongPathValueByIndex(0, -1);
+        String body = rq.getParam("body", "");
+
+        rq.println("채팅방 번호 : %d<br />".formatted(roomId));
+        rq.println("채팅메세지 : %s<br />".formatted(body));
     }
 }
