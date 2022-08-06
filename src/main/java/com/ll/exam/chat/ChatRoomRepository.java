@@ -43,7 +43,7 @@ public class ChatRoomRepository {
         datum.remove(chatRoomDto);
     }
 
-    private ChatRoomDto findById(long id) {
+    public ChatRoomDto findById(long id) {
             for(ChatRoomDto ad : datum) {
                 if(ad.getId() == id) {
                     return ad;
@@ -51,4 +51,12 @@ public class ChatRoomRepository {
             }
             return null;
         }
+
+    public void modify(long id, String title, String body) {
+        ChatRoomDto chatRoomDto = findById(id);
+
+        chatRoomDto.setTitle(title);
+        chatRoomDto.setBody(body);
+
     }
+}

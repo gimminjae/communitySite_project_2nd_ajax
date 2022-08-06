@@ -8,7 +8,7 @@
     <artifactId>communitySite_project</artifactId>
     <version>1.0-SNAPSHOT</version>
 
-
+    <!--DI-->
     <dependencies>
 
         <!--jackson(ObjectMapper)-->

@@ -53,4 +53,43 @@ public class ChatController {
 
         rq.replace("/usr/chat/roomList/free", "채팅방이 삭제되었습니다.");
     }
+
+    public void showModifyRoom(Rq rq) {
+        long id = rq.getPostId();
+
+        if (id == 0) {
+            rq.replace("/usr/chat/roomList/free", "번호를 입력해주세요.");
+            return;
+        }
+        ChatRoomDto chatRoomDto = chatService.findById(id);
+
+        if (chatRoomDto == null) {
+            rq.replace("/usr/chat/roomList/free", "해당 채팅방은 존재하지 않습니다.");
+            return;
+        }
+        rq.setAttr("chatRoom", chatRoomDto);
+        rq.view("usr/chat/modifyRoom");
+    }
+
+    public void doModifyRoom(Rq rq) {
+        long id = rq.getPostId();
+
+        if (id == 0) {
+            rq.replace("/usr/article/list/free", "번호를 입력해주세요.");
+            return;
+        }
+        ChatRoomDto chatRoomDto = chatService.findById(id);
+
+        if (chatRoomDto == null) {
+            rq.replace("/usr/chat/roomList/free", "해당 채팅방은 존재하지 않습니다.");
+            return;
+        }
+
+        String title = rq.getParam("title", "");
+        String body = rq.getParam("body", "");
+
+        chatService.modify(id, title, body);
+
+        rq.replace("/usr/chat/detail/free/%d".formatted(id), "%d번 채팅방이 수정되었습니다.".formatted(id));
+    }
 }
